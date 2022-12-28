@@ -14,7 +14,7 @@ int SelectionSort( int arr[] , int n  ) {
 		int temp  = arr[last];
 		arr[last] = arr[max];
 		arr[max]  = temp;
-}
+  }
 	// print the array after sorted
 
 	for( int k=0; k<n; k++ ) {
