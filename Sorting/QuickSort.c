@@ -16,7 +16,7 @@
        	 	int pivot = arr[mid];
         // run the while loop
 
-         while( start <= end ) {
+        while( start <= end ) {
 
             // also a reason , why it won't swaped if it is already sorted
             while( arr[start] < pivot ) {
