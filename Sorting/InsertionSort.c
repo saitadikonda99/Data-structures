@@ -6,7 +6,7 @@
 			int temp = arr[k];
 			int s = k-1;
 		// sort the array using while loop
-		while( s>=0 && arr[s] > temp ) {	
+ 		while( s>=0 && arr[s] > temp ) {	
 			arr[s+1] =  arr[s];
 			s -= 1;
 			}

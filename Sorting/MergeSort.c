@@ -1,7 +1,7 @@
 // Merge sort in c
 
 #include<stdio.h>
-
+	int sort( int
 
 
 
