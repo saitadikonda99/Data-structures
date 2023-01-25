@@ -1,4 +1,4 @@
-// Merge sort in c
+/ Merge sort in c
 
 #include<stdio.h>
 void MergeSort( int[], int, int );
@@ -50,7 +50,7 @@ void Sorting( int arr[], int start, int mid, int end ) {
                
 void MergeSort( int arr[], int start , int end ) {
 	
-	// check whether the start is less than equal to end	
+	// check whether the start is less than end	
 	if( start < end ) {
 	// calculate the mid value 
 	//  start + ( end - start) / 2, same as ( (start+end)/2 ), just to prevent the overflow
