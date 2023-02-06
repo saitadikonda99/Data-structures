@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<stdlib.h>
 
 struct node {
 	int data;
@@ -9,13 +10,13 @@ struct node {
 	
 void append() {
 	struct node *newnode;
-	newnode = ( *struct node )malloc( sizeof(struct node) );
+	newnode = ( struct node* )malloc( sizeof(struct node) );
 	printf("enter the data: ");
 	scanf("%d",&newnode->data);
 	newnode->next = NULL;
 	newnode->prev = NULL;
         	if( head == NULL ) {
-			head = tail = data;
+			head = tail = newnode;
 			}
 		  else {
 			tail->next = newnode;
@@ -26,7 +27,7 @@ void append() {
 
 void insert_begin() {
 		struct node *newnode;
-		newnode = ( *struct node )malloc( sizeof(struct node ) );
+		newnode = ( struct node* )malloc( sizeof(struct node ) );
 		printf("enter the data: ");
 		scanf("%d",&newnode->data );
 		newnode->next = NULL;
@@ -39,6 +40,17 @@ void insert_begin() {
 				newnode->next = head;
 				head          = newnode;
 				}
+}
+
+int length() {
+	struct node *temp = head;
+		int len = 0;
+		while( temp != NULL ) {
+			len++;
+			temp = temp->next;
+			}
+		return len;
+}
  
 void insert_pos() {
 		int pos;
@@ -51,7 +63,7 @@ void insert_pos() {
   				     insert_begin();
 				}
 				else {
-				struct node *p = root
+				struct node *p = head;
 				     int k = 0;
 				  while( k < pos ) {
 					p = p->next;
@@ -59,7 +71,7 @@ void insert_pos() {
 					}
 				
 		struct node *newnode;
-		newnode = ( *struct node )malloc( sizeof( struct node ) );
+		newnode = ( struct node* )malloc( sizeof( struct node ) );
 		printf("enter the data: ");
 		scanf("%d",&newnode->data);
 		newnode->prev = p;
@@ -92,10 +104,10 @@ void delete_pos() {
                                 printf("enter the valid position\n");
                                 }		  
 			else {
-			       struct node *temp = root;
+			       struct node *temp = head;
 			       int k =0;
 			while( k < pos ) {
-				temp = temp->link;
+				temp = temp->next;
 				k++;
 				}
 			temp->prev->next = temp->next;
@@ -116,6 +128,39 @@ void delete_end() {
                 }
         }
 
+void display() {
+	struct node *temp = head;
+
+		if( length() == 0 ) {
+			printf("List is empty\n");
+			}
+	
+		while( temp != NULL )  {
+			printf("%d",temp->data );
+			printf("-->");
+			temp = temp->next;
+			}
+			printf("NULL\n");
+			
+		}
+void product() {
+        struct node *temp = head;
+                int pro = 1;
+                while( temp != NULL ) {
+                        pro += temp->data;
+                        temp = temp->next;
+                        }
+                printf("pro of node : %d\n" , pro );
+}
+void sum() {
+        struct node *temp = head;
+                int sum = 0;
+                while( temp != NULL ) {
+                        sum += temp->data;
+                        temp = temp->next;
+                        }
+                printf("sum of node : %d\n" , sum );
+}
 
 int main() {
 	
@@ -137,7 +182,7 @@ int main() {
                 printf(" 0.exit\n");
                 printf("\n");
                 printf("\n");
-                 int ch,length;
+                 int ch,len;
                  printf("---- enter your choice ---- : \n");
                  scanf("%d",&ch);
          switch( ch ) {
@@ -153,15 +198,15 @@ int main() {
                                   break;
                         case 5  : delete_pos();
                                   break;
-                        case 6  : delete_last();
+                        case 6  : delete_end();
                                   break;
-                        case 7  : length = length_linked();
-                                  printf("length of the liked list :%d\n",length);
+                        case 7  : len = length();
+                                  printf("length of the liked list :%d\n",len);
                                   break;
                         case 8  : display();
                                   break;
-                        case 9  : reverse();
-                                  break;
+           //             case 9  : reverse();
+             //                     break;
                         case 10 : sum();
                                   break;
                         case 11 : product();
