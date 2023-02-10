@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
-
+	
 	struct node {
 		char name[99];
 		char gender[99];
