@@ -20,7 +20,7 @@ int precedence( char operator ) {
 	}
 
 int isoperator( char ch ) {
-	return ( ch == '+' || ch == '-' || ch == '*' || ch == '/' );
+	return ( ch == '+' || ch == '-' || ch == '*' || ch == '/' || ch == '^' );
 	}
 	
 char *infixtopostfix( char * infix ) {
