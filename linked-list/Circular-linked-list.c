@@ -43,6 +43,10 @@ void append() {
 int length_linked() {
 	struct node *temp = last;
 		int len = 0;
+	if( last == NULL )  {
+		return 0;
+		}
+
 		while( temp->next != last ) {
 			len++;
 			temp = temp->next;
@@ -60,6 +64,8 @@ void insert_pos() {
 			   else {
 				struct node *newnode;
 				newnode = ( struct node* )malloc( sizeof( struct node ) );
+				printf("enter the data: ");
+				scanf("%d",&newnode->data);
 				struct node *temp = last;
 			            int k  = 1;
 				    while( k < pos - 1 ) {
@@ -88,6 +94,7 @@ void delete_begin() {
 
 void delete_pos() {
 	 struct node *current, *nextnode;
+		current = last->next;
                 int pos;
                 printf("Enter the position: ");
                 scanf("%d",&pos);
@@ -131,12 +138,13 @@ void display() {
 		struct node *temp = last;
  	if( last == NULL )
 		printf(" Empty\n");
-                else {
-	   		while ( temp->next != last ) { 
+                else {  
+			temp = temp->next;
+	   		while ( temp != last ) { 
 			printf("%d --> ",temp->data);
 			temp = temp->next;
 
-		}  			
+		}  	printf("%d ",temp->data);	
 			printf("\n");
 			printf("\n");
 
@@ -153,8 +161,9 @@ void sum() {
 	   		while ( temp->next != last ) { 
 				sum += temp->data;
 				temp = temp->next;
-
-}  			printf("sum : %d" ,sum );
+}
+			sum += temp->data;
+  			printf("sum : %d" ,sum );
 			printf("\n");
 			printf("\n");
 
@@ -166,12 +175,14 @@ void product() {
                 printf("Empty\n");
  		}
                 else {
-		        int pro = 0;
+			int pro = 0;
                         while ( temp->next != last ) {
                                 pro += temp->data;
                                 temp = temp->next;
 
-}                       printf("pro : %d" ,pro );
+}                      
+			pro += temp->data;
+			printf("pro : %d" ,pro );
                         printf("\n");
                         printf("\n");
 
