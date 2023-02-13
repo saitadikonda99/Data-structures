@@ -136,20 +136,20 @@ void display() {
 			printf("%d --> ",temp->data);
 			temp = temp->next;
 
-}  			
+		}  			
 			printf("\n");
 			printf("\n");
 
-}				}
-		}
+			}				
 
-	
+		}	
 void sum() {
 	  struct node *temp = last;
- 	if( last == NULL )
+ 	if( last == NULL ) {
 		printf(" Empty\n");
-		int sum = 0;
+		}
                 else {
+			int sum = 0;
 	   		while ( temp->next != last ) { 
 				sum += temp->data;
 				temp = temp->next;
@@ -162,10 +162,11 @@ void sum() {
 }
 void product() {
 	 struct node *temp = last;
-        if( last == NULL )
+        if( last == NULL ) {
                 printf("Empty\n");
-                int pro = 0;
+ 		}
                 else {
+		        int pro = 0;
                         while ( temp->next != last ) {
                                 pro += temp->data;
                                 temp = temp->next;
