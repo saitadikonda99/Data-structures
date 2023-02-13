@@ -125,7 +125,7 @@ void display() {
 			printf("%d --> ",temp->data);
 			temp = temp->link;
 
-}  
+}  			printf("NULL");
 			printf("\n");
 			printf("\n");
 

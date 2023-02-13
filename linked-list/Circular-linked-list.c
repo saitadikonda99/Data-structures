@@ -24,14 +24,14 @@ void insert_begin() {
 		}
 
 void append() {
-		struct node *newnode;
+	struct node *newnode;
         newnode = ( struct node* )malloc( sizeof(struct node ));
         printf("enter the data\n");
         scanf("%d",&newnode->data );
         newnode->next = NULL;
                 if( last == NULL ) {
-                        head       = newnode;
-                        head->next = newnode;
+                        last       = newnode;
+                        last->next = newnode;
                         }
 		    else {
                         newnode->next = last->next;
@@ -40,26 +40,27 @@ void append() {
                         }
                 }
 
-int length() {
-	struct node *temp = tail;
+int length_linked() {
+	struct node *temp = last;
 		int len = 0;
-		while( temp != NULL ) {
+		while( temp->next != last ) {
 			len++;
 			temp = temp->next;
 			}
 		return len;
 	}
-
 					
 void insert_pos() {
 		int pos;
 		printf("Enter the position: ");	
 		scanf("%d",&pos);	
-			if( pos > len || pos < 0 ) {
+			if( pos > length_linked() || pos < 0 ) {
 				printf("enter the valid input\n");
 				}
 			   else {
-				struct node *temp = tail;
+				struct node *newnode;
+				newnode = ( struct node* )malloc( sizeof( struct node ) );
+				struct node *temp = last;
 			            int k  = 1;
 				    while( k < pos - 1 ) {
 						temp = temp->next;
@@ -70,53 +71,110 @@ void insert_pos() {
 			}
 		
 void delete_begin() {
-
-
-		
+		struct node *temp = last->next;
+			if( temp == NULL ) {
+				printf("List is empty\n");
+				}
+			   else if( temp->next == last ) { 	
+					temp = NULL;	
+					free( temp );
+					}
+				else {
+				     last->next = temp->next;
+				     free( temp );
 		}
+	}
 
 
 void delete_pos() {
-	
-
-		
-	
+	 struct node *current, *nextnode;
+                int pos;
+                printf("Enter the position: ");
+                scanf("%d",&pos);
+                        if( pos < 1 || pos > length_linked() ) {
+				printf("Enter the valid position\n");
+				}
+			   else {
+				int k = 1;
+				     while( k < pos ) {
+					current = current->next;
+					k++;
+					}
+				nextnode      = current->next;
+				current->next = nextnode->next;
+				free( nextnode );
+				}			
 	}
 	
-
 void delete_last() {
-	
-		
-	
-
+		struct node *current, *previous;
+		current = last->next;
+			if( last == NULL ) {
+				printf("List is empty\n");
+				}
+			  else if( current->next == last->next  ) {
+					last = NULL;
+					free( last );
+					}
+				else {
+				      while( current->next != last->next ) {
+						previous = current;
+						current = current->next;
+						}
+					previous->next = last->next;
+					last   	       = previous;
+					free( current );
+			}
 	}
-
 
 void display() {
-	
+		struct node *temp = last;
+ 	if( last == NULL )
+		printf(" Empty\n");
+                else {
+	   		while ( temp->next != last ) { 
+			printf("%d --> ",temp->data);
+			temp = temp->next;
 
-	
-	
-	
-		}
-	
+}  			
+			printf("\n");
+			printf("\n");
 
-void reverse() {
-
- 
-
+}				}
 		}
 
 	
 void sum() {
+	  struct node *temp = last;
+ 	if( last == NULL )
+		printf(" Empty\n");
+		int sum = 0;
+                else {
+	   		while ( temp->next != last ) { 
+				sum += temp->data;
+				temp = temp->next;
 
+}  			printf("sum : %d" ,sum );
+			printf("\n");
+			printf("\n");
 
 	}
-
+}
 void product() {
+	 struct node *temp = last;
+        if( last == NULL )
+                printf("Empty\n");
+                int pro = 0;
+                else {
+                        while ( temp->next != last ) {
+                                pro += temp->data;
+                                temp = temp->next;
 
+}                       printf("pro : %d" ,pro );
+                        printf("\n");
+                        printf("\n");
 
-		
+	        }
 	}
 
 int main() {
@@ -162,8 +220,8 @@ int main() {
                                   break;
                         case 8  : display();
                                   break;
-			case 9  : reverse();
-				  break;
+//			case 9  : reverse();
+//				  break;
 			case 10 : sum();
 				  break;
 			case 11 : product();
