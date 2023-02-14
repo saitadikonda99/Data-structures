@@ -5,7 +5,7 @@ int queue[N];
 int front = -1;
 int rear = -1;
 
-void enqueue() {
+void enqueue_front() {
 	if( (rear + 1 ) % N == front ) {
 		printf("Over Flow\n ");
 		}
