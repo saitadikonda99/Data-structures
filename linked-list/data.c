@@ -156,26 +156,7 @@ void display() {
 
 				}
 }
-	void reverse() {
-	          struct node *p, *q;
-		  int len = length_linked();
-		   int  k = 0;
-		   int  s = len -1;
-		   p = q = root;
-		    while( k < s ) {
-			 int t = 0;
-			while( t < s ) {
-				q = q->link;
-				t++;
-				}
-			int temp = p->data;
-			p->data = q->data;
-			q->data = temp;
-			k++;
-			s--;
-			p = p->link;
-			q = root;
-			}
+
 	
 }						
 int main() {
@@ -192,7 +173,6 @@ int main() {
                 printf(" 6.delete at end\n" );
 		printf(" 7.length of the linked list\n");	
                 printf(" 8.display\n" );
-		printf(" 9.reverse the linked list\n");
 		printf(" 0.exit\n");
 		printf("\n");
 		printf("\n");
@@ -219,8 +199,6 @@ int main() {
                                   break;
                         case 8  : display();
                                   break;
-			case 9  : reverse();
-				  break;
 		       default : printf(" ----choose from 0  -  10 ---- \n ");
 		
 }
