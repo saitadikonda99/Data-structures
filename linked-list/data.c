@@ -145,8 +145,8 @@ void display() {
 			int k = 0;
 	   		while ( temp != NULL ) {
 			printf("NODE - %d\n : ", k); 
-			printf("name : %d\n --> ",temp->name);
-			printf("name : %d\n --> ",temp->age);
+			printf("Name : %s\n --> ",temp->name);
+			printf("Age  : %d\n --> ",temp->age);
 			printf("CGPA : %d\n --> ",temp->cgpa);
 			temp = temp->link;
 
@@ -157,8 +157,7 @@ void display() {
 				}
 }
 
-	
-}						
+			
 int main() {
 	  
           printf( " --------- LINKED LIST ---------\n " );
