@@ -13,11 +13,11 @@ void append() {
 	struct node *temp;
 	temp = ( struct node* )malloc( sizeof(struct node) );
 	printf("enter the data\n");
-	printf("enter the name: " );
+	printf("enter the name : " );
 	scanf("\n%[^\n]",temp->name);
-	printf("enter the age: ");
+	printf("enter the age  : ");
 	scanf("\n%d",&temp->age);
-	printf("enter the CGPA");
+	printf("enter the CGPA : ");
 	scanf("%f",&temp->cgpa);
 	temp->link = NULL;
 		if( root == NULL ) {
@@ -35,11 +35,11 @@ void insert_begin() {
 		struct node *temp;
 		temp = ( struct node* )malloc( sizeof(struct node) );
 		printf("enter the data\n ");
-		printf("enter the name: " );
+		printf("enter the name : " );
         	scanf("\n%[^\n]",temp->name);
-        	printf("enter the age: ");
+        	printf("enter the age  : ");
         	scanf("\n%d",&temp->age);
-        	printf("enter the CGPA");
+        	printf("enter the CGPA : ");
        	 	scanf("%f",&temp->cgpa);
                 	if( root == NULL ) {
                         	root = temp;
@@ -53,7 +53,7 @@ void insert_begin() {
 int length_linked() {
 		struct node *temp;
 		temp = root;
-		int length= 0 ;
+		int length = 0 ;
 		while( temp != NULL) {
 			length++;
 			temp = temp->link;
@@ -138,16 +138,17 @@ void delete_last() {
 }
                       }
 void display() {
-		struct node *temp =root;
+		struct node *temp = root;
  	if( root == NULL )
 		printf(" Empty\n");
                 else {	
 			int k = 0;
 	   		while ( temp != NULL ) {
-			printf("NODE - %d\n : ", k); 
+			printf("NODE - %d\n", k); 
 			printf("Name : %s\n --> ",temp->name);
 			printf("Age  : %d\n --> ",temp->age);
-			printf("CGPA : %d\n --> ",temp->cgpa);
+			printf("CGPA : %f\n --> ",temp->cgpa);
+			k++;
 			temp = temp->link;
 
 }  			printf("NULL");
