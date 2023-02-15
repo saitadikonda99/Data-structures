@@ -1,11 +1,11 @@
 #include<stdio.h>
 #include<stdlib.h>
 	
-	struct node {
-		char name[99];
-		int age;
-		float cgpa;
-		struct node *link;
+struct node {
+	char name[99];
+	int age;
+	float cgpa;
+	struct node *link;
 		};
 		struct node *root = NULL;
 		
@@ -32,28 +32,28 @@ void append() {
 		}
 	}
 void insert_begin() {
-		struct node *temp;
-		temp = ( struct node* )malloc( sizeof(struct node) );
-		printf("enter the data\n ");
-		printf("enter the name : " );
-        	scanf("\n%[^\n]",temp->name);
-        	printf("enter the age  : ");
-        	scanf("\n%d",&temp->age);
-        	printf("enter the CGPA : ");
-       	 	scanf("%f",&temp->cgpa);
+	struct node *temp;
+	temp = ( struct node* )malloc( sizeof(struct node) );
+	printf("enter the data\n ");
+	printf("enter the name : " );
+       	scanf("\n%[^\n]",temp->name);
+       	printf("enter the age  : ");
+       	scanf("\n%d",&temp->age);
+       	printf("enter the CGPA : ");
+    	scanf("%f",&temp->cgpa);
                 	if( root == NULL ) {
                         	root = temp;
                         	}
                 		else {		
 					temp->link = root;
-					temp = root;
+					root = temp;
 				}
 			}
 
 int length_linked() {
-		struct node *temp;
-		temp = root;
-		int length = 0 ;
+	struct node *temp;
+	temp = root;
+	int length = 0 ;
 		while( temp != NULL) {
 			length++;
 			temp = temp->link;
@@ -62,28 +62,28 @@ int length_linked() {
 		}
 	
 void insert_pos() {
-		 struct node *temp;
-		 int pos,len;
-		 printf("enter the position to insert : ");
-		 scanf("%d",&pos);
-		 len = length_linked();
-	if( pos > len ) 
-  		printf(" position is greater than length\n");
-		else {
-		      struct node *p = root ;
-		      int i=1;
-		while( i < pos ) {
+	 struct node *temp;
+	 int pos,len;
+	 printf("enter the position to insert : ");
+	 scanf("%d",&pos);
+	 len = length_linked();
+		if( pos > len ) 
+  			printf(" position is greater than length\n");
+				else {
+		      			struct node *p = root ;
+		      			int k=1;
+		while( k < pos ) {
   			p = p->link;
-			i++;
+			k++;
 			}
-		  struct node *temp;
+		struct node *temp;
         	temp = ( struct node* )malloc( sizeof(struct node) );
         	printf("enter the data\n");
-    	 	printf("enter the name: " );
+    	 	printf("enter the name : " );
       	        scanf("\n%[^\n]",temp->name);
-        	printf("enter the age: ");
+        	printf("enter the age  : ");
         	scanf("\n%d",&temp->age);
-        	printf("enter the CGPA");
+        	printf("enter the CGPA :");
        		scanf("%f",&temp->cgpa);
 			 temp->link = p->link; 
 			 p->link = temp;
@@ -126,11 +126,11 @@ void delete_last() {
 	  if( root == NULL )
 	   	printf(" Empty\n");
 	        else {
-			int i=1;
+			int k=1;
 			int len = length_linked();
-			while ( i < len-1 ) {
+			while ( k < len-1 ) {
 				p=p->link;
- 				i++;
+ 				k++;
 				}
 			 q = p->link;
 			 p->link = q->link;
@@ -144,14 +144,14 @@ void display() {
                 else {	
 			int k = 0;
 	   		while ( temp != NULL ) {
-			printf("NODE - %d\n", k); 
-			printf("Name : %s\n --> ",temp->name);
-			printf("Age  : %d\n --> ",temp->age);
-			printf("CGPA : %f\n --> ",temp->cgpa);
+			printf("   ---NODE %d----\n ", k); 
+			printf("Name : %s\n ",temp->name);
+			printf("Age  : %d\n ",temp->age);
+			printf("CGPA : %f\n ",temp->cgpa);
+			printf("\n");
 			k++;
 			temp = temp->link;
-
-}  			printf("NULL");
+}
 			printf("\n");
 			printf("\n");
 
