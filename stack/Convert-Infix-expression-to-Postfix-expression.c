@@ -52,8 +52,7 @@ char *infixtopostfix( char * infix ) {
 					}
 				}
 				else if( isoperator( infix[k] ) ) {
-					while ( top > -1 && precedence( stack[top] ) >= 
-precedence( infix[k] ) )  {
+					while ( top > -1 && precedence( stack[top] ) >= precedence( infix[k] ) )  {
 							postfix[s++] = stack[top--];
 							}
 					stack[++top] = infix[k];
