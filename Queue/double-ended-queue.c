@@ -7,8 +7,7 @@ int rear  = -1;
 	
 void insert_front() {
 		
-	
-	
+			
 	
 
 		}
