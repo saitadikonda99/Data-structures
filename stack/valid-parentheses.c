@@ -1,4 +1,3 @@
-// https://leetcode.com/problems/valid-parentheses
 
 #include <stdio.h>
 #include <stdlib.h>
