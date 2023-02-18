@@ -9,7 +9,7 @@ void pop() {
 	else {
 		printf("Poped element is %d\n",stack[top]);
 		top--;
-		}
+			}
 	}
 void push() {
 	if( top == N-1 ) 
