@@ -5,7 +5,7 @@
 	void  printarray( int[] , int );
 
 	int sort( int arr[] , int low , int hi ) {
-		 // consider the following
+	// consider the following
         	if( low >= hi ) {
             	return 0;
 	        }
