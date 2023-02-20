@@ -1,4 +1,4 @@
-/ Merge sort in c
+// Merge sort in c
 
 #include<stdio.h>
 void MergeSort( int[], int, int );
