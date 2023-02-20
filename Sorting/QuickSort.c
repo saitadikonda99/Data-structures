@@ -12,6 +12,8 @@
         	int start = low;
         	int end   = hi;
         // calculate the mid element
+	// st + ( end - st ) / 2 is same as st  + end / 2 just to avoid overflow of int
+
         	int mid   = start + ( end - start ) / 2;
        	 	int pivot = arr[mid];
         // run the while loop
