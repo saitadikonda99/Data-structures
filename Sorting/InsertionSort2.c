@@ -1,4 +1,4 @@
-// print the array after every single sort
+ // print the array after every single sort
 
  #include<stdio.h>
         int InsertionSort( int[], int );
@@ -12,14 +12,13 @@
                 while( s>=0 && arr[s] > temp ) {
                         arr[s+1] =  arr[s];
                         s--;
+                         arr[s+1] = temp;
                 for( int k=0; k<n; k++ ) {
                         printf("%d ",arr[k]);
                         }
                         printf("\n");
-			
-                       
                 }
-                        arr[s+1] = temp;
+                        
                 }
                                     
 		// final sorted array
@@ -40,11 +39,9 @@ int main() {
         scanf("%d",&size);
         int arr[size];
         // input the array using while loop
-while( k < size ) {	
-	 printf("arr[%d] = " ,k);
-         scanf("%d",&arr[k] );
-        k++;
-        }
+ for( int k=0; k<size; k++ ) {
+            scanf("%d",&arr[k]);
+                        }
         InsertionSort( arr, size );
         return 0;
         }
