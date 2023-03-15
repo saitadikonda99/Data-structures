@@ -8,5 +8,8 @@ struct node {
 	};
 	
 	
+<<<<<<< HEAD
 kusuma naga sri
 sai
+=======
+>>>>>>> parent of 5813341 ( update from sai)
