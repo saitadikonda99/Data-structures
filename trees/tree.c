@@ -7,4 +7,7 @@ struct node {
 	struct node *left;
 	};
 	
-	
+lahdv
+akjbdf
+l;fanfk
+jdak;js	
