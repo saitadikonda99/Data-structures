@@ -8,11 +8,3 @@ struct node {
 	};
 	
 	
-<<<<<<< HEAD
-<<<<<<< HEAD
-kusuma naga sri
-sai
-=======
->>>>>>> parent of 5813341 ( update from sai)
-=======
->>>>>>> parent of 5813341 ( update from sai)
