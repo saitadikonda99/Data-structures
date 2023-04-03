@@ -11,16 +11,11 @@ struct node *create() {
 	struct node *newnode = ( struct node* )malloc( sizeof( struct node ) );
 	printf("enter the data for the node ( -1 to exit ) : " );
 	scanf("%d",&newnode->data);
-		if( newnode->data == -1 ) {
-			free( newnode );
-			return 0;
-			}
-	printf("creating the left child for %d : \n", newnode->data);
-	newnode->left = create();
-
- 	printf("creating the rigth child for %d : \n", newnode->data);
-    newnode->right = create();
-
+	newnode->left = NULL;
+    newnode->right = NULL;
+    if( newnode->data == -1 ) {
+        return NULL;
+    }
 	return newnode;
 	}
 
@@ -63,6 +58,17 @@ void postorder( struct node *root ) {
 			}
                 }
 
+int min(struct node* root) {
+    if (root == NULL) {
+        printf("Error: Tree is empty.\n");
+        exit(1);
+    }
+    while (root->left != NULL) {
+        root = root->left;
+    }
+    return root->data;
+}
+
 struct node * insert( struct node *root , int data ) {
 
 		// base condition
@@ -85,18 +91,6 @@ struct node * insert( struct node *root , int data ) {
 			}
 		// ignore duplicates
 		return root;
-}
-int min(struct node* root) {
-
-
-    if (root == NULL) {
-        printf("Error: Tree is empty.\n");
-        exit(1);
-    }
-    while (root->left != NULL) {
-        root = root->left;
-    }
-    return root->data;
 }
 
 struct node *delete(struct node *root, int data) {
@@ -129,8 +123,7 @@ struct node *delete(struct node *root, int data) {
 
 int max(struct node* root) {
      if (root == NULL) {
-        printf("Error: Tree is empty.\n");
-        exit(1);
+        return -1; // or some other default value
     }
     while (root->right != NULL) {
         root = root->right;
@@ -183,12 +176,12 @@ int main() {
                 postorder(root);
                 printf("\n");
                 break;
-            case 6:
-                printf("Maximum Value : %d\n", max(root));
-                break;
+             case 6:
+                 printf("Maximum Value : %d\n", max(root));
+                 break;
             case 7:
-                printf("Minimum Value : %d\n", min(root));
-                break;
+                 printf("Minimum Value : %d\n", min(root));
+                 break;
             case 8:
                 exit(0);
             default:
