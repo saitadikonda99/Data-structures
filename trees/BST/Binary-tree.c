@@ -87,15 +87,16 @@ struct node * insert( struct node *root , int data ) {
 		return root;
 }
 int min(struct node* root) {
+
+
     if (root == NULL) {
-        printf("Tree is empty\n");
-        return -1;
-    } else if (root->left == NULL) {
-        // the minimum value is in the leftmost node
-        return root->data;
-    } else {
-        return min(root->left);
+        printf("Error: Tree is empty.\n");
+        exit(1);
     }
+    while (root->left != NULL) {
+        root = root->left;
+    }
+    return root->data;
 }
 
 struct node *delete(struct node *root, int data) {
@@ -127,15 +128,14 @@ struct node *delete(struct node *root, int data) {
 }
 
 int max(struct node* root) {
-    if (root == NULL) {
-        printf("Tree is empty\n");
-        return -1;
-    } else if (root->right == NULL) {
-        // the maximum value is in the rightmost node
-        return root->data;
-    } else {
-        return max(root->right);
+     if (root == NULL) {
+        printf("Error: Tree is empty.\n");
+        exit(1);
     }
+    while (root->right != NULL) {
+        root = root->right;
+    }
+    return root->data;
 }
 
 
