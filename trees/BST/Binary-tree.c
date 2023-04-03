@@ -86,6 +86,33 @@ struct node * insert( struct node *root , int data ) {
 		// ignore duplicates
 		return root;
 }
+struct node *delete(struct node *root, int data) {
+    if (root == NULL) {
+        return NULL;
+    } else if (data < root->data) {
+        root->left = delete(root->left, data);
+    } else if (data > root->data) {
+        root->right = delete(root->right, data);
+    } else {
+        if (root->left == NULL && root->right == NULL) {
+            free(root);
+            root = NULL;
+        } else if (root->left == NULL) {
+            struct node *temp = root;
+            root = root->right;
+            free(temp);
+        } else if (root->right == NULL) {
+            struct node *temp = root;
+            root = root->left;
+            free(temp);
+        } else {
+            int min_value = min(root->right);
+            root->data = min_value;
+            root->right = delete(root->right, min_value);
+        }
+    }
+    return root;
+}
 
 int max(struct node* root) {
     if (root == NULL) {
@@ -112,18 +139,59 @@ int min(struct node* root) {
 }
 
 int main() {
-	struct node *root;
-	root = create();
-	printf("Inorder traversal : ");
-	inorder( root );
-	printf("\n");
-	printf("postorder traversal : ");
-	postorder( root );
-	printf("\n");
-	printf("pretorder traversal : ");
-	preorder( root );
-	printf("\n");
+    struct node *root = NULL;
+    int choice, data;
+    while (1) {
+        printf("1. Insert\n");
+        printf("2. Delete\n");
+        printf("3. Preorder Traversal\n");
+        printf("4. Inorder Traversal\n");
+        printf("5. Postorder Traversal\n");
+        printf("6. Find Maximum Value\n");
+        printf("7. Find Minimum Value\n");
+        printf("8. Exit\n");
+        printf("Enter your choice : ");
+        scanf("%d", &choice);
 
-	return 0;
-	}
+        switch (choice) {
+            case 1:
+                printf("Enter the data to insert : ");
+                scanf("%d", &data);
+                root = insert(root, data);
+                break;
+            case 2:
+                printf("Enter the data to delete : ");
+                scanf("%d", &data);
+                root = delete(root, data);
+                break;
+            case 3:
+                printf("Preorder Traversal : ");
+                preorder(root);
+                printf("\n");
+                break;
+            case 4:
+                printf("Inorder Traversal : ");
+                inorder(root);
+                printf("\n");
+                break;
+            case 5:
+                printf("Postorder Traversal : ");
+                postorder(root);
+                printf("\n");
+                break;
+            case 6:
+                printf("Maximum Value : %d\n", max(root));
+                break;
+            case 7:
+                printf("Minimum Value : %d\n", min(root));
+                break;
+            case 8:
+                exit(0);
+            default:
+                printf("Invalid choice\n");
+        }
+    }
+    return 0;
+}
+
 
