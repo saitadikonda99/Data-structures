@@ -86,6 +86,18 @@ struct node * insert( struct node *root , int data ) {
 		// ignore duplicates
 		return root;
 }
+int min(struct node* root) {
+    if (root == NULL) {
+        printf("Tree is empty\n");
+        return -1;
+    } else if (root->left == NULL) {
+        // the minimum value is in the leftmost node
+        return root->data;
+    } else {
+        return min(root->left);
+    }
+}
+
 struct node *delete(struct node *root, int data) {
     if (root == NULL) {
         return NULL;
@@ -126,22 +138,12 @@ int max(struct node* root) {
     }
 }
 
-int min(struct node* root) {
-    if (root == NULL) {
-        printf("Tree is empty\n");
-        return -1;
-    } else if (root->left == NULL) {
-        // the minimum value is in the leftmost node
-        return root->data;
-    } else {
-        return min(root->left);
-    }
-}
 
 int main() {
     struct node *root = NULL;
     int choice, data;
     while (1) {
+        printf("0.create\n");
         printf("1. Insert\n");
         printf("2. Delete\n");
         printf("3. Preorder Traversal\n");
@@ -154,6 +156,8 @@ int main() {
         scanf("%d", &choice);
 
         switch (choice) {
+            case 0 : root = create();
+                     break;
             case 1:
                 printf("Enter the data to insert : ");
                 scanf("%d", &data);
