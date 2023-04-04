@@ -39,10 +39,10 @@ void HeapSort( int arr[], int n ) {
 }
 
 
-void insertion( int arr[], int n, int key ) {
-    n = n + 1;
-    arr[n-1] = key;
-    int k = n-1;
+void insertion( int arr[], int *n, int key ) {
+    (*n)++;
+    arr[*n-1] = key;
+    int k = *n-1;
 
     while( k > 0 ) {
         int parent = k / 2;
@@ -56,7 +56,7 @@ void insertion( int arr[], int n, int key ) {
     }
 }
 
-void delete( int arr[], int n, int key ) {
+void delete( int arr[], int *n, int key ) {
 
     int pos = -1;
     for( int k=0; k<n; k++ ) {
