@@ -59,7 +59,7 @@ void insertion( int arr[], int *n, int key ) {
 void delete( int arr[], int *n, int key ) {
 
     int pos = -1;
-    for( int k=0; k<n; k++ ) {
+    for( int k=0; k<*n; k++ ) {
         if( arr[k] == key ) {
             pos = k;
         }
@@ -69,11 +69,12 @@ void delete( int arr[], int *n, int key ) {
         return;
     }
 
-    Swap( &arr[pos], &arr[n-1]);
-    n--;
+    Swap( &arr[pos], &arr[*n-1]);
 
-     for( int k=n/2-1; k>=0; k-- ) {
-        Heapify( arr, n, k);
+    (*n)--;
+
+     for( int k=*n/2-1; k>=0; k-- ) {
+        Heapify( arr, k, *n);
     }
 
 }
@@ -94,13 +95,13 @@ int main() {
        }
        printf("\n");
 
-    insertion( arr, n, 10);
+    insertion( arr, &n, 10);
     printf("after insertion of 10 : ");
        for( int k=0; k<n; k++ ) {
         printf("%d ",arr[k]);
        }
         printf("\n");
-    delete( arr, n, 10);
+    delete( arr, &n, 10);
     printf("after deletion of 10 : ");
        for( int k=0; k<n; k++ ) {
         printf("%d ",arr[k]);
