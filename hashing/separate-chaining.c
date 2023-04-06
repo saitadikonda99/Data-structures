@@ -8,13 +8,13 @@ struct node {
 	};
 
 	struct node *list[Max_size];
-	
+
 int pos( int key ) {
 	return key % Max_size;
 	}
 
 void insert() {
-	int key; 
+	int key;
 	printf("enter the key to insert: ");
 	scanf("%d",&key );
 	int position = pos( key );
@@ -32,7 +32,7 @@ void insert() {
 						temp->next = newnode;
 						}
 				}
-		
+
 void display() {
 	struct node *temp;
 		for( int k=0; k<Max_size; k++  ) {
@@ -41,9 +41,11 @@ void display() {
 					printf("%d --> ",temp->data );
 					temp = temp->next;
 					}
-					printf("NULL\n");	
+					printf("NULL\n");
 				}
 	}
+
+//	             <----- TADIKONDA SAI MANIKANTA ----->
 
 void search() {
 	int element;
@@ -58,20 +60,19 @@ void search() {
 			temp = temp->next;
 			}
 		printf("element %d not found\n",element );
-
-		}
+}
 int main() {
-	
+
 		while(1) {
 			printf(  "-- Menu -- \n " );
 			printf(    "1.insert \n ");
 			printf(     "2.display \n");
-			printf(    " 3.search \n"); 
+			printf(    " 3.search \n");
 			printf(     "0.exit \n");
 			int ch;
 			printf("Choose the option: ");
 			scanf("%d",&ch);
-		switch( ch ) {   
+		switch( ch ) {
 			case 1 : insert();
 				     break;
 			case 2 : display();
